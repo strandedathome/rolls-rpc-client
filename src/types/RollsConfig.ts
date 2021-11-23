@@ -1,7 +1,7 @@
 export interface RollsConfig {
   ALERTS_URL: string;
   ROLLS_ALERTS_PUBKEY: string;
-  chia_ssl_ca: SslCa;
+  rolls_ssl_ca: SslCa;
   daemon_port: number;
   daemon_ssl: SslCerts;
   farmer: Farmer;
@@ -133,7 +133,7 @@ export interface FullNode {
 }
 
 export interface Harvester {
-  chia_ssl_ca: SslCa;
+  rolls_ssl_ca: SslCa;
   farmer_peer: PeerHost;
   logging: Logging;
   network_overrides: NetworkOverrides;

@@ -9,30 +9,30 @@ import {
   UnfinishedBlockHeadersResponse,
   AdditionsAndRemovalsResponse,
 } from "./types/FullNode/RpcResponse";
-import { ChiaOptions, RpcClient } from "./RpcClient";
+import { RollsOptions, RpcClient } from "./RpcClient";
 import { Block } from "./types/FullNode/Block";
 import { CertPath } from "./types/CertPath";
-import { getRollsConfig, getChiaFilePath } from "./ChiaNodeUtils";
+import { getRollsConfig, getRollsFilePath } from "./RollsNodeUtils";
 // @ts-ignore
 import { address_to_puzzle_hash, puzzle_hash_to_address, get_coin_info_mojo } from "chia-utils";
 
-const chiaConfig = getRollsConfig();
+const rollsConfig = getRollsConfig();
 const defaultProtocol = "https";
-const defaultHostname = chiaConfig?.self_hostname || "localhost";
-const defaultPort = chiaConfig?.full_node.rpc_port || 9877;
-const defaultCaCertPath = chiaConfig?.private_ssl_ca.crt;
-const defaultCertPath = chiaConfig?.daemon_ssl.private_crt;
-const defaultCertKey = chiaConfig?.daemon_ssl.private_key;
+const defaultHostname = rollsConfig?.self_hostname || "localhost";
+const defaultPort = rollsConfig?.full_node.rpc_port || 9877;
+const defaultCaCertPath = rollsConfig?.private_ssl_ca.crt;
+const defaultCertPath = rollsConfig?.daemon_ssl.private_crt;
+const defaultCertKey = rollsConfig?.daemon_ssl.private_key;
 
 class FullNode extends RpcClient {
-  public constructor(options?: Partial<ChiaOptions> & CertPath) {
+  public constructor(options?: Partial<RollsOptions> & CertPath) {
     super({
       protocol: options?.protocol || defaultProtocol,
       hostname: options?.hostname || defaultHostname,
       port: options?.port || defaultPort,
-      caCertPath: options?.caCertPath || getChiaFilePath(defaultCaCertPath),
-      certPath: options?.certPath || getChiaFilePath(defaultCertPath),
-      keyPath: options?.keyPath || getChiaFilePath(defaultCertKey),
+      caCertPath: options?.caCertPath || getRollsFilePath(defaultCaCertPath),
+      certPath: options?.certPath || getRollsFilePath(defaultCertPath),
+      keyPath: options?.keyPath || getRollsFilePath(defaultCertKey),
     });
   }
 

@@ -6,27 +6,27 @@ import {
   SignagePointsResponse
 } from "./types/Farmer/RpcResponse";
 import { CertPath } from "./types/CertPath";
-import { getRollsConfig, getChiaFilePath } from "./ChiaNodeUtils";
-import { ChiaOptions, RpcClient } from "./RpcClient";
+import { getRollsConfig, getRollsFilePath } from "./RollsNodeUtils";
+import { RollsOptions, RpcClient } from "./RpcClient";
 import { RpcResponse } from "./types/RpcResponse";
 
-const chiaConfig = getRollsConfig();
+const rollsConfig = getRollsConfig();
 const defaultProtocol = "https";
-const defaultHostname = chiaConfig?.self_hostname || "localhost";
-const defaultPort = chiaConfig?.farmer.rpc_port || 6540;
-const defaultCaCertPath = chiaConfig?.private_ssl_ca.crt;
-const defaultCertPath = chiaConfig?.daemon_ssl.private_crt;
-const defaultCertKey = chiaConfig?.daemon_ssl.private_key;
+const defaultHostname = rollsConfig?.self_hostname || "localhost";
+const defaultPort = rollsConfig?.farmer.rpc_port || 6540;
+const defaultCaCertPath = rollsConfig?.private_ssl_ca.crt;
+const defaultCertPath = rollsConfig?.daemon_ssl.private_crt;
+const defaultCertKey = rollsConfig?.daemon_ssl.private_key;
 
 class Farmer extends RpcClient {
-  public constructor(options?: Partial<ChiaOptions> & CertPath) {
+  public constructor(options?: Partial<RollsOptions> & CertPath) {
     super({
       protocol: options?.protocol || defaultProtocol,
       hostname: options?.hostname || defaultHostname,
       port: options?.port || defaultPort,
-      caCertPath: options?.caCertPath || getChiaFilePath(defaultCaCertPath),
-      certPath: options?.certPath || getChiaFilePath(defaultCertPath),
-      keyPath: options?.keyPath || getChiaFilePath(defaultCertKey),
+      caCertPath: options?.caCertPath || getRollsFilePath(defaultCaCertPath),
+      certPath: options?.certPath || getRollsFilePath(defaultCertPath),
+      keyPath: options?.keyPath || getRollsFilePath(defaultCertKey),
     });
   }
 

@@ -22,6 +22,6 @@ export const getRollsConfig = (): RollsConfig => {
   return parse(readFileSync(configFilePath, "utf8")) as RollsConfig;
 };
 
-export const getChiaFilePath = (relativePath: string): string => {
+export const getRollsFilePath = (relativePath: string): string => {
   return resolve(getRollsRootPath(), relativePath);
 };

@@ -16,27 +16,27 @@ describe("Wallet", () => {
       nock("https://localhost:58765")
         .defaultReplyHeaders({ "access-control-allow-origin": "*" })
         .post("/log_in", {
-          host: "https://backup.chia.net",
-          fingerprint: 123,
+          host: "https://backup.pecanrolls.net",
+          fingerprint: 3243657125,
           type: "start",
         })
         .reply(200, "success");
 
-      expect(await wallet.logIn(123)).toEqual("success");
+      expect(await wallet.logIn(3243657125)).toEqual("success");
     });
 
     it("calls log_in with type=restore_backup", async () => {
       nock("https://localhost:58765")
         .defaultReplyHeaders({ "access-control-allow-origin": "*" })
         .post("/log_in", {
-          host: "https://backup.chia.net",
-          fingerprint: 123,
+          host: "https://backup.pecanrolls.net",
+          fingerprint: 3243657125,
           type: "restore_backup",
           file_path: "/root/yolo",
         })
         .reply(200, "success");
 
-      expect(await wallet.logInAndRestore(123, "/root/yolo")).toEqual(
+      expect(await wallet.logInAndRestore(3243657125, "/root/yolo")).toEqual(
         "success"
       );
     });
@@ -45,13 +45,13 @@ describe("Wallet", () => {
       nock("https://localhost:58765")
         .defaultReplyHeaders({ "access-control-allow-origin": "*" })
         .post("/log_in", {
-          host: "https://backup.chia.net",
-          fingerprint: 123,
+          host: "https://backup.pecanrolls.net",
+          fingerprint: 3243657125,
           type: "skip",
         })
         .reply(200, "success");
 
-      expect(await wallet.logInAndSkip(123)).toEqual("success");
+      expect(await wallet.logInAndSkip(3243657125)).toEqual("success");
     });
 
     it("calls get_public_keys", async () => {
@@ -66,10 +66,10 @@ describe("Wallet", () => {
     it("calls get_private_key", async () => {
       nock("https://localhost:58765")
         .defaultReplyHeaders({ "access-control-allow-origin": "*" })
-        .post("/get_private_key", { fingerprint: 123 })
+        .post("/get_private_key", { fingerprint: 3243657125 })
         .reply(200, { private_key: "success" });
 
-      expect(await wallet.getPrivateKey(123)).toEqual("success");
+      expect(await wallet.getPrivateKey(3243657125)).toEqual("success");
     });
 
     it("calls generate_mnemonic", async () => {
@@ -96,10 +96,10 @@ describe("Wallet", () => {
     it("calls delete_key", async () => {
       nock("https://localhost:58765")
         .defaultReplyHeaders({ "access-control-allow-origin": "*" })
-        .post("/delete_key", { fingerprint: 123 })
+        .post("/delete_key", { fingerprint: 3243657125 })
         .reply(200, "success");
 
-      expect(await wallet.deleteKey(123)).toEqual("success");
+      expect(await wallet.deleteKey(3243657125)).toEqual("success");
     });
 
     it("calls delete_all_keys", async () => {

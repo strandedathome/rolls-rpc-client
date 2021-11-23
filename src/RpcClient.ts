@@ -4,7 +4,7 @@ import axios from "axios";
 
 type Protocol = "https" | "http";
 
-interface ChiaOptions {
+interface RollsOptions {
   protocol: Protocol;
   hostname: string;
   port: number;
@@ -19,7 +19,7 @@ class RpcClient {
   private readonly port: number;
   private readonly agent: Agent;
 
-  public constructor(options: ChiaOptions) {
+  public constructor(options: RollsOptions) {
     this.protocol = options.protocol;
     this.hostname = options.hostname;
     this.port = options.port;
@@ -47,4 +47,4 @@ class RpcClient {
   }
 }
 
-export { ChiaOptions, RpcClient };
+export { RollsOptions, RpcClient };

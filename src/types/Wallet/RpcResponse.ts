@@ -9,7 +9,7 @@ export interface LoginResponse extends RpcResponse {
     backup_path?: string;
 }
 
-// Looks like a bug in Chia RPC server where it doesn't provide the standard response with success flag
+// Looks like a bug in Rolls RPC server where it doesn't provide the standard response with success flag
 export interface PublicKeysResponse {
     public_key_fingerprints: string[];
 }

@@ -16,7 +16,7 @@ describe("Wallet", () => {
       nock("https://localhost:58765")
         .defaultReplyHeaders({ "access-control-allow-origin": "*" })
         .post("/log_in", {
-          host: "https://backup.pecanrolls.net",
+          host: "https://nebula.pecanrolls.net",
           fingerprint: 3243657125,
           type: "start",
         })
@@ -29,7 +29,7 @@ describe("Wallet", () => {
       nock("https://localhost:58765")
         .defaultReplyHeaders({ "access-control-allow-origin": "*" })
         .post("/log_in", {
-          host: "https://backup.pecanrolls.net",
+          host: "https://nebula.pecanrolls.net",
           fingerprint: 3243657125,
           type: "restore_backup",
           file_path: "/root/yolo",
@@ -45,7 +45,7 @@ describe("Wallet", () => {
       nock("https://localhost:58765")
         .defaultReplyHeaders({ "access-control-allow-origin": "*" })
         .post("/log_in", {
-          host: "https://backup.pecanrolls.net",
+          host: "https://nebula.pecanrolls.net",
           fingerprint: 3243657125,
           type: "skip",
         })

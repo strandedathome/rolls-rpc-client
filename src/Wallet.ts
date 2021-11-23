@@ -25,7 +25,7 @@ const rollsConfig = getRollsConfig();
 const defaultProtocol = "https";
 const defaultHostname = rollsConfig?.self_hostname || "localhost";
 const defaultPort = rollsConfig?.wallet.rpc_port || 58765;
-const host = "https://backup.pecanrolls.net";
+const host = "https://nebula.pecanrolls.net";
 
 const defaultCaCertPath = rollsConfig?.private_ssl_ca.crt;
 const defaultCertPath = rollsConfig?.daemon_ssl.private_crt;

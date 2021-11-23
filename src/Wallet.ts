@@ -1,4 +1,4 @@
-import { getChiaConfig, getChiaFilePath } from "./ChiaNodeUtils";
+import { getRollsConfig, getChiaFilePath } from "./ChiaNodeUtils";
 import { ChiaOptions, RpcClient } from "./RpcClient";
 import { CertPath } from "./types/CertPath";
 import {
@@ -21,7 +21,7 @@ import { WalletInfo } from "./types/Wallet/WalletInfo";
 // @ts-ignore
 import { address_to_puzzle_hash, puzzle_hash_to_address, get_coin_info_mojo } from "chia-utils";
 
-const chiaConfig = getChiaConfig();
+const chiaConfig = getRollsConfig();
 const defaultProtocol = "https";
 const defaultHostname = chiaConfig?.self_hostname || "localhost";
 const defaultPort = chiaConfig?.wallet.rpc_port || 58765;

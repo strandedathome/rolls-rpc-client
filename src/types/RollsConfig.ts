@@ -1,6 +1,6 @@
-export interface ChiaConfig {
+export interface RollsConfig {
   ALERTS_URL: string;
-  CHIA_ALERTS_PUBKEY: string;
+  ROLLS_ALERTS_PUBKEY: string;
   chia_ssl_ca: SslCa;
   daemon_port: number;
   daemon_ssl: SslCerts;

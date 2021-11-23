@@ -12,11 +12,11 @@ import {
 import { ChiaOptions, RpcClient } from "./RpcClient";
 import { Block } from "./types/FullNode/Block";
 import { CertPath } from "./types/CertPath";
-import { getChiaConfig, getChiaFilePath } from "./ChiaNodeUtils";
+import { getRollsConfig, getChiaFilePath } from "./ChiaNodeUtils";
 // @ts-ignore
 import { address_to_puzzle_hash, puzzle_hash_to_address, get_coin_info_mojo } from "chia-utils";
 
-const chiaConfig = getChiaConfig();
+const chiaConfig = getRollsConfig();
 const defaultProtocol = "https";
 const defaultHostname = chiaConfig?.self_hostname || "localhost";
 const defaultPort = chiaConfig?.full_node.rpc_port || 9877;

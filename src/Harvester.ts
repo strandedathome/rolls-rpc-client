@@ -3,11 +3,11 @@ import {
   PlotsResponse
 } from "./types/Harvester/RpcResponse";
 import { CertPath } from "./types/CertPath";
-import { getChiaConfig, getChiaFilePath } from "./ChiaNodeUtils";
+import { getRollsConfig, getChiaFilePath } from "./ChiaNodeUtils";
 import { ChiaOptions, RpcClient } from "./RpcClient";
 import { RpcResponse } from "./types/RpcResponse";
 
-const chiaConfig = getChiaConfig();
+const chiaConfig = getRollsConfig();
 const defaultProtocol = "https";
 const defaultHostname = chiaConfig?.self_hostname || "localhost";
 const defaultPort = chiaConfig?.harvester.rpc_port || 5433;

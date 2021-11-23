@@ -1,10 +1,10 @@
 import {ChiaOptions, RpcClient} from "./RpcClient";
 import { CertPath } from "./types/CertPath";
-import { getChiaConfig, getChiaFilePath } from "./ChiaNodeUtils";
+import { getRollsConfig, getChiaFilePath } from "./ChiaNodeUtils";
 import {ConnectionResponse} from "./types/FullNode/RpcResponse";
 import {RpcResponse} from "./types/RpcResponse";
 
-const chiaConfig = getChiaConfig();
+const chiaConfig = getRollsConfig();
 const defaultProtocol = "https";
 const defaultHostname = chiaConfig?.self_hostname || "localhost";
 const defaultPort = chiaConfig?.full_node.rpc_port || 9877;

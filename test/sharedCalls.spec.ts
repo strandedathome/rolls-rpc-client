@@ -14,7 +14,7 @@ describe("Shared Calls", () => {
         })
 
         it("calls get_connections", async () => {
-            nock("https://localhost:8555")
+            nock("https://localhost:9877")
                 .defaultReplyHeaders({"access-control-allow-origin": "*"})
                 .post("/get_connections")
                 .reply(200, "success");
@@ -23,7 +23,7 @@ describe("Shared Calls", () => {
         });
 
         it("calls open_connection with url 'node.chia.net'", async () =>{
-            nock("https://localhost:8555")
+            nock("https://localhost:9877")
                 .defaultReplyHeaders({ "access-control-allow-origin": "*" })
                 .post("/open_connection", { host: "node.chia.net", port: 8444,})
                 .reply(200, "success")
@@ -32,7 +32,7 @@ describe("Shared Calls", () => {
         })
 
         it("calls stop_node", async () =>{
-            nock("https://localhost:8555")
+            nock("https://localhost:9877")
                 .defaultReplyHeaders({ "access-control-allow-origin": "*" })
                 .post("/stop_node", {})
                 .reply(200, "success")

@@ -10,7 +10,7 @@ import { RpcResponse } from "./types/RpcResponse";
 const chiaConfig = getChiaConfig();
 const defaultProtocol = "https";
 const defaultHostname = chiaConfig?.self_hostname || "localhost";
-const defaultPort = chiaConfig?.harvester.rpc_port || 8560;
+const defaultPort = chiaConfig?.harvester.rpc_port || 5433;
 const defaultCaCertPath = chiaConfig?.private_ssl_ca.crt;
 const defaultCertPath = chiaConfig?.daemon_ssl.private_crt;
 const defaultCertKey = chiaConfig?.daemon_ssl.private_key;

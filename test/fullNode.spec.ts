@@ -13,7 +13,7 @@ describe("Full Node", () => {
     });
 
     it("calls get_blockchain_state", async () => {
-      nock("https://localhost:8555")
+      nock("https://localhost:9877")
         .defaultReplyHeaders({ "access-control-allow-origin": "*" })
         .post("/get_blockchain_state")
         .reply(200, "success");
@@ -22,7 +22,7 @@ describe("Full Node", () => {
     });
 
     it("calls get_block with header_hash in body", async () => {
-      nock("https://localhost:8555")
+      nock("https://localhost:9877")
         .defaultReplyHeaders({ "access-control-allow-origin": "*" })
         .post("/get_block", { header_hash: "fakeHeaderHash" })
         .reply(200, "success");
@@ -31,7 +31,7 @@ describe("Full Node", () => {
     });
 
     it("calls get_block_record_by_height with height in body", async () => {
-      nock("https://localhost:8555")
+      nock("https://localhost:9877")
         .defaultReplyHeaders({ "access-control-allow-origin": "*" })
         .post("/get_block_record_by_height", { height: 42 })
         .reply(200, "success");
@@ -40,7 +40,7 @@ describe("Full Node", () => {
     });
 
     it("calls get_block_record with header_hash in body", async () => {
-      nock("https://localhost:8555")
+      nock("https://localhost:9877")
         .defaultReplyHeaders({ "access-control-allow-origin": "*" })
         .post("/get_block_record", { header_hash: "fakeHeaderHash" })
         .reply(200, "success");
@@ -51,7 +51,7 @@ describe("Full Node", () => {
     });
 
     it("calls get_unfinished_block_headers with header_hash in body", async () => {
-      nock("https://localhost:8555")
+      nock("https://localhost:9877")
         .defaultReplyHeaders({ "access-control-allow-origin": "*" })
         .post("/get_unfinished_block_headers", { height: 42 })
         .reply(200, "success");
@@ -60,7 +60,7 @@ describe("Full Node", () => {
     });
 
     it("calls get_unspent_coins with puzzle_hash", async () => {
-      nock("https://localhost:8555")
+      nock("https://localhost:9877")
         .defaultReplyHeaders({ "access-control-allow-origin": "*" })
         .post("/get_coin_records_by_puzzle_hash", {
           puzzle_hash: "fakePuzzleHash",
@@ -74,7 +74,7 @@ describe("Full Node", () => {
     });
 
     it("calls get_coin_record_by_name with name", async () => {
-      nock("https://localhost:8555")
+      nock("https://localhost:9877")
         .defaultReplyHeaders({ "access-control-allow-origin": "*" })
         .post("/get_coin_record_by_name", {
           name: "fakeCoinName",
@@ -87,7 +87,7 @@ describe("Full Node", () => {
     });
 
     it("calls get_additions_and_removals", async () => {
-      nock("https://localhost:8555")
+      nock("https://localhost:9877")
         .defaultReplyHeaders({ "access-control-allow-origin": "*" })
         .post("/get_additions_and_removals", { header_hash: "fakeHeaderHash" })
         .reply(200, "success");

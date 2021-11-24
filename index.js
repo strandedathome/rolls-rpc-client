@@ -11,13 +11,15 @@ var Farmer_1 = require("./src/Farmer");
 exports.Farmer = Farmer_1.Farmer;
 var SharedCalls_1 = require("./src/SharedCalls");
 exports.SharedCalls = SharedCalls_1.SharedCalls;
+
+// test a full node with blockchain and display to console
+// run with node index.js
 var fullNode = new FullNode_1.FullNode({
     protocol: 'https',
     hostname: 'localhost',
     port: 9877
 });
 var blockchain = fullNode.getBlockchainState();
-console.log(blockchain);
 blockchain.then(function (fullNode) {
     console.log(fullNode);
 });

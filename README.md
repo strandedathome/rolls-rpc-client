@@ -23,8 +23,6 @@ var blockchain = fullNode.getBlockchainState();
 blockchain.then(function (fullNode) {
     console.log(fullNode);
 });
-
-
 ```
 
 ### Wallet

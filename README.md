@@ -15,28 +15,16 @@ import { FullNode } from 'rolls-rpc-client';
 const fullNode = new FullNode({
     protocol: 'https',
     hostname: 'localhost',
-    port: 4321
+    port: 9987
 });
-
-const blockchain = fullNode.getBlockchainState();
-
-console.log(await blockChainState.blockchain_state.space);
 ```
 
-### Wallet
-
+For using ts-node
 ```
-import { Wallet } from 'chia-client';
-
-const wallet = new Wallet({
-    protocol: 'https',
-    hostname: 'localhost',
-    port: 8765
-});
-
-const mnemonic = await wallet.generateMnemonic();
+blockchain.then(function(fullNode) {
+   console.log(fullNode.blockChainState.blockchain_state)
+})
 ```
-
 ### Credits
 
 This client is provided by [PecanRolls Blockchain Explorer](https://explorer.pecanrolls.net).

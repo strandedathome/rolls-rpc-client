@@ -17,14 +17,13 @@ const fullNode = new FullNode({
     hostname: 'localhost',
     port: 9987
 });
-```
 
-For using ts-node
-```
+// using ts-node
 blockchain.then(function(fullNode) {
    console.log(fullNode.blockChainState.blockchain_state)
 })
 ```
+
 ### Credits
 
 This client is provided by [PecanRolls Blockchain Explorer](https://explorer.pecanrolls.net).

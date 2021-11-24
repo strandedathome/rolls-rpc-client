@@ -10,15 +10,19 @@ npm install https://github.com/strandedathome/rolls-rpc-client.git
 ### Full Node
 
 ```
-import { FullNode } from 'rolls-rpc-client';
+// test a full node with blockchain and display to console
+// run with node index.js
 
-const fullNode = new FullNode({
+var fullNode = new FullNode_1.FullNode({
     protocol: 'https',
     hostname: 'localhost',
     port: 9877
 });
 
-const blockchain = fullNode.getBlockchainState();
+var blockchain = fullNode.getBlockchainState();
+blockchain.then(function (fullNode) {
+    console.log(fullNode);
+});
 
 
 ```
